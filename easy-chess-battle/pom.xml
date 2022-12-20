@@ -9,31 +9,21 @@
         <version>1.0.0</version>
     </parent>
 
-    <groupId>com.easychess.common</groupId>
-    <artifactId>easy-chess-common</artifactId>
+    <groupId>com.easychess.battle</groupId>
+    <artifactId>easy-chess-battle</artifactId>
     <packaging>jar</packaging>
+
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
     <dependencies>
         <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
-            <version>${netty.version}</version>
+            <groupId>com.easychess.common</groupId>
+            <artifactId>easy-chess-common</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                    <finalName>${project.name}</finalName>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>
