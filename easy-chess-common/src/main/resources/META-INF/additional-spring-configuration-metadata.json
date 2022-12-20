@@ -1,0 +1,24 @@
+{
+  "groups": [
+    {
+      "name": "netty",
+      "type": "com.easychess.common.properties.netty.NettyConfigProperties",
+      "sourceType": "com.easychess.common.properties.netty.NettyConfigProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "netty.host",
+      "type": "java.lang.String",
+      "sourceType": "com.easychess.common.properties.netty.NettyConfigProperties",
+      "description": "netty server ip.",
+      "defaultValue": null
+    },{
+      "name": "netty.port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.easychess.common.properties.netty.NettyConfigProperties",
+      "description": "netty server port.",
+      "defaultValue": null
+    }
+  ]
+}

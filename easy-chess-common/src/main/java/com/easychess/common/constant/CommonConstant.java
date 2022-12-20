@@ -11,4 +11,9 @@ public interface CommonConstant {
      * 战斗服code
      */
     String BATTLE_CODE = "battle";
+
+    /**
+     * netty 配置文件前缀
+     */
+    String NETTY_CONFIG_PREFIX = "netty";
 }

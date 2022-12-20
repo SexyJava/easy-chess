@@ -15,4 +15,9 @@ public interface LogConstant {
      * 服务器已销毁
      */
     String SERVER_DESTROYED = "server destroyed";
+
+    /**
+     * 服务器：
+     */
+    String SERVER = "server:";
 }

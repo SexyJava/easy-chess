@@ -1,12 +1,14 @@
 package com.easychess.battle;
 
-import com.easychess.common.constant.CommonConstant;
-import com.easychess.common.constant.LogConstant;
-import com.easychess.common.netty.AbstractNettyServer;
-import com.easychess.common.util.LogUtil;
+import com.easychess.common.netty.CommonNettyServer;
+import com.easychess.common.netty.NettyServer;
+import com.easychess.common.properties.netty.NettyConfigProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+
+import javax.annotation.Resource;
 
 /**
  * 对战服
@@ -16,17 +18,22 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @Slf4j
 @SpringBootApplication
-public class BattleApplication extends AbstractNettyServer {
+@ConditionalOnBean(NettyConfigProperties.class)
+public class BattleApplication implements NettyServer {
+
+    @Resource
+    CommonNettyServer commonNettyServer;
     public static void main(String[] args) {
         SpringApplication.run(BattleApplication.class,args);
     }
 
     @Override
     public void init() {
-        log.info(LogUtil.customFormat(CommonConstant.BATTLE_CODE, LogConstant.SERVER_STARTED));
+        commonNettyServer.start();
     }
     @Override
     public void destroy() {
-        log.info(LogUtil.customFormat(CommonConstant.BATTLE_CODE, LogConstant.SERVER_DESTROYED));
+        commonNettyServer.stop();
     }
+
 }
