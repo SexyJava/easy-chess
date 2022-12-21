@@ -3,7 +3,6 @@ package com.easychess.common.properties.netty;
 import com.easychess.common.constant.CommonConstant;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-
 import org.springframework.stereotype.Component;
 
 /**
@@ -24,5 +23,5 @@ public class NettyConfigProperties {
     /**
      * netty port
      */
-    public  Integer PORT = null;
+    public Integer PORT = null;
 }

@@ -37,19 +37,10 @@ public abstract class AbstractNettyServer {
     protected final EventLoopGroup workerGroup = new NioEventLoopGroup();
 
     /**
-     * netty config
-     * todo springUtil.getBean()
-     */
-    protected static final NettyConfigProperties nettyConfigProperties = null;
-    /**
      * 通道
      */
     protected Channel channel;
 
-    /**
-     * handler 初始化器
-     */
-    protected final NettyServerInitializer nettyServerInitializer = new NettyServerInitializer();
 
 
     /**
@@ -59,7 +50,7 @@ public abstract class AbstractNettyServer {
     /**
      * netty server start
      */
-    public void start() {
+    public void start(NettyConfigProperties nettyConfigProperties) {
         try {
             config();
             ChannelFuture future = serverBootstrap.bind(nettyConfigProperties.HOST, nettyConfigProperties.PORT).sync();

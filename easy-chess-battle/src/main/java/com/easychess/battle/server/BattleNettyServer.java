@@ -1,22 +1,28 @@
-package com.easychess.common.netty;
+package com.easychess.battle.server;
 
-import io.netty.bootstrap.ServerBootstrap;
+import com.easychess.common.netty.AbstractNettyServer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
+ * Battle Netty Server
+ *
  * @author Liuyunda
  * @date 2022/12/21 0:36
  */
 @Component
-public class CommonNettyServer extends AbstractNettyServer{
+public class BattleNettyServer extends AbstractNettyServer {
 
+    /**
+     * handler 初始化器
+     */
+    @Autowired
+    public BattleNettyServerInitializer battleNettyServerInitializer;
 
     @Override
     public void config() {
-        // 启动类
-        serverBootstrap = new ServerBootstrap();
         // 设置参数，组配置
         serverBootstrap.group(bossGroup, workerGroup)
                 // 指定channel
@@ -34,6 +40,6 @@ public class CommonNettyServer extends AbstractNettyServer{
                 // 接收缓冲区大小
                 .childOption(ChannelOption.SO_RCVBUF, 256 * 1024)
                 // Netty服务端channel初始化
-                .childHandler(nettyServerInitializer);
+                .childHandler(battleNettyServerInitializer);
     }
 }

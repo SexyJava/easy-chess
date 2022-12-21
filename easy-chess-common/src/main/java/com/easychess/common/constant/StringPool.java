@@ -68,5 +68,6 @@ public interface StringPool {
     String GET               = "GET";
     String POST              = "POST";
     String EXCEL_EMPTY       = "--";
-
+    String START             = "☆";
+    String SOLID_START             = "★";
 }

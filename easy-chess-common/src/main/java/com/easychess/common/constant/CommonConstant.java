@@ -8,6 +8,10 @@ package com.easychess.common.constant;
  */
 public interface CommonConstant {
     /**
+     * common code
+     */
+    String COMMON_CODE = "common";
+    /**
      * 战斗服code
      */
     String BATTLE_CODE = "battle";
